@@ -1,9 +1,10 @@
 { config, pkgs, lib, ... }:
 
 let
+  secrets = import ./secrets.nix;
   hostname = "lambdapi";
   user = "lv";
-  password = "password";
+  password = secrets.password;
   nixosHardwareVersion = "7f1836531b126cfcf584e7d7d71bf8758bb58969";
 
   timeZone = "America/New_York";
