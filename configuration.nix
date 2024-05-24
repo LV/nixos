@@ -32,6 +32,9 @@ in {
       userName = "Luis Victoria";
       userEmail = "v@lambda.lv";
     };
+    programs.neovim = {
+      enable = true;
+    };
   };
 
   fileSystems = {
