@@ -9,11 +9,16 @@ let
 
   timeZone = "America/New_York";
   defaultLocale = "en_US.UTF-8";
+
+  modulesDir = "/etc/nixos/modules";
+  # moduleFiles = builtins.attrNames (builtins.readDir modulesDir);
+  moduleFiles = builtins.filter (file: builtins.match ".+\\.nix$" file != null) (builtins.attrNames (builtins.readDir modulesDir));
+  moduleImports = builtins.map (file: import (modulesDir + "/" + file)) moduleFiles;
 in {
   imports = [
     "${fetchTarball "https://github.com/NixOS/nixos-hardware/archive/${nixosHardwareVersion}.tar.gz" }/raspberry-pi/4"
     <home-manager/nixos>
-  ];
+  ] ++ moduleImports;
 
   environment.systemPackages = with pkgs; [
     firefox
@@ -31,9 +36,6 @@ in {
       enable = true;
       userName = "Luis Victoria";
       userEmail = "v@lambda.lv";
-    };
-    programs.neovim = {
-      enable = true;
     };
   };
 
