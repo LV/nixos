@@ -5,15 +5,14 @@
 
   environment.systemPackages = with pkgs; [
     git
+    neovim
   ];
 
   programs.git = {
     enable = true;
-    config = {
-      user = {
-        name = "Luis Victoria";
-        email = "v@lambda.lv";
-      };
+    config.user = {
+      name = "Luis Victoria";
+      email = "v@lambda.lv";
     };
   };
 }
