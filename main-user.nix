@@ -16,6 +16,7 @@
     users.users.${config.main-user.userName} = {
       isNormalUser = true;
       description = "main user";
+      extraGroups = [ "wheel" ]; # enable `sudo` for the user
     };
   };
 }
