@@ -1,5 +1,8 @@
 { lib, config, pkgs, ... }:
 
+let
+  cfg = config.main-user;
+in
 {
   options = {
     main-user.enable = lib.mkEnableOption "enable user module";
@@ -12,8 +15,8 @@
     };
   };
 
-  config = lib.mkIf config.main-user.enable {
-    users.users.${config.main-user.userName} = {
+  config = lib.mkIf cfg.enable {
+    users.users.${cfg.userName} = {
       isNormalUser = true;
       description = "main user";
       extraGroups = [ "wheel" ]; # enable `sudo` for the user
