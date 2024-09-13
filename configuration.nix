@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      <home-manager/nixos>
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -126,4 +127,3 @@
   system.stateVersion = "24.05"; # Did you read the comment?
 
 }
-
