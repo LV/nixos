@@ -66,8 +66,10 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     cmake
+    fzf
     gcc
     git
+    gnumake
     hyprland
     kitty
     lazygit
@@ -81,12 +83,15 @@
       neovim
     ];
 
-    home.file.".config/nvim" = {
-      source = builtins.fetchGit {
-        url = "https://github.com/lv/nvim-config";
-	ref = "master";
-      };
-    };
+  home.activation = {
+    pullNvimConfig = ''
+      if [ -d "$HOME/.config/nvim" ]; then
+        ${pkgs.git}/bin/git -C "$HOME/.config/nvim" pull
+      else
+        ${pkgs.git}/bin/git clone https://github.com/lv/nvim-config "$HOME/.config/nvim"
+      fi
+    '';
+  };
 
     home.stateVersion = "24.05";
   };
@@ -102,26 +107,6 @@
   programs.hyprland = {
     enable = true;
   };
-
-  # symlink /home/lv/.config/nvim to root so that same exact config pertains
-  system.activationScripts.neovimRootConfig = ''
-  # Ensure necessary parent directories exist
-  mkdir -p /root/.config
-  mkdir -p /root/.local/share
-
-  # Remove existing root nvim configs and shares if it exists
-  if [ -d /root/.config/nvim ]; then
-    rm -rf /root/.config/nvim
-  fi
-
-  if [ -d /root/.config/nvim ]; then
-    rm -rf /root/.local/share/nvim
-  fi
-
-  # Create a symlink from root's nvim config to lv's nvim config
-  ln -sf /home/lv/.config/nvim /root/.config/nvim
-  ln -sf /home/lv/.local/share/nvim /root/.local/share/nvim
-  '';
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
