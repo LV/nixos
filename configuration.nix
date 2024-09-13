@@ -67,6 +67,7 @@
   environment.systemPackages = with pkgs; [
     git
     hyprland
+    kitty
     neovim
     tmux
   ];
