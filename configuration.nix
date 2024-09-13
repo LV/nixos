@@ -87,9 +87,15 @@
 
     programs.zsh.enable = true;
 
+		home.sessionVariables = {
+			XDG_CURRENT_DESKTOP = "hyprland";
+			MOZ_ENABLE_WAYLAND = 1;
+		};
+
     home.stateVersion = "24.05";
   };
 
+  # Keep this outside of Home Manager if you want `root` to have the same Git configuration
   programs.git = {
     enable = true;
     config.user = {
