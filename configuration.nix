@@ -37,9 +37,6 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-
-  
-
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
@@ -68,6 +65,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
+    hyprland
     neovim
     tmux
   ];
@@ -78,6 +76,10 @@
       name = "Luis Victoria";
       email = "v@lambda.lv";
     };
+  };
+
+  programs.hyprland = {
+    enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
