@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./main-user.nix
       # <home-manager/nixos>
     ];
 
@@ -58,12 +59,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.lv = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    ignoreShellProgramCheck = true; # HomeManager is handling the shell configuration
-  };
+  # main-user.nix
+  main-user.enable = true;
+  main-user.userName = "lv";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
