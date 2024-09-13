@@ -77,25 +77,6 @@
     ripgrep
     tmux
   ];
-
-  home-manager.users.lv = {
-    home.packages = with pkgs; [
-      neovim
-    ];
-
-  home.activation = {
-    pullNvimConfig = ''
-      if [ -d "$HOME/.config/nvim" ]; then
-        ${pkgs.git}/bin/git -C "$HOME/.config/nvim" pull
-      else
-        ${pkgs.git}/bin/git clone https://github.com/lv/nvim-config "$HOME/.config/nvim"
-      fi
-    '';
-  };
-
-    home.stateVersion = "24.05";
-  };
-
   programs.git = {
     enable = true;
     config.user = {
