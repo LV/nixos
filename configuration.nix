@@ -72,6 +72,21 @@
     tmux
   ];
 
+  home-manager.users.lv = {
+    home.packages = with pkgs; [
+      neovim
+    ];
+
+    home.file.".config/nvim" = {
+      source = builtins.fetchGit {
+        url = "https://github.com/lv/nvim-config";
+	ref = "master";
+      };
+    };
+
+    home.stateVersion = "24.05";
+  };
+
   programs.git = {
     enable = true;
     config.user = {
