@@ -72,6 +72,7 @@
     kitty
     lazygit
     neovim
+    ripgrep
     tmux
   ];
 
