@@ -70,6 +70,7 @@
     git
     hyprland
     kitty
+    lazygit
     neovim
     tmux
   ];
