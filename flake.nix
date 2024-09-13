@@ -15,8 +15,8 @@
       system = "aarch64-linux";
       specialArgs = {inherit inputs;};
       modules = [
-        ./configuration.nix
-        ./hardware-configuration.nix
+        ./hosts/default/configuration.nix
+        ./hosts/default/hardware-configuration.nix
         inputs.home-manager.nixosModules.default
       ];
     };
