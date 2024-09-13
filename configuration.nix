@@ -118,7 +118,7 @@
 
   # Create a symlink from root's nvim config to lv's nvim config
   ln -sf /home/lv/.config/nvim /root/.config/nvim
-  ln -sf /home/lv/.local/share/nvim
+  ln -sf /home/lv/.local/share/nvim /root/.local/share/nvim
   '';
 
   # Some programs need SUID wrappers, can be configured further or are
