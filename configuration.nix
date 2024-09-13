@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      <home-manager/nixos>
+      # <home-manager/nixos>
     ];
 
   # Enable Nix Flakes
@@ -82,21 +82,21 @@
     wget
   ];
 
-  home-manager.users.lv = { pkgs, ... }: {
-    home.packages = with pkgs; [
-      firefox
-      neovim
-    ];
+  # home-manager.users.lv = { pkgs, ... }: {
+  #   home.packages = with pkgs; [
+  #     firefox
+  #     neovim
+  #   ];
 
-    programs.zsh.enable = true;
+  #   programs.zsh.enable = true;
 
-		home.sessionVariables = {
-			XDG_CURRENT_DESKTOP = "hyprland";
-			MOZ_ENABLE_WAYLAND = 1;
-		};
+	# 	home.sessionVariables = {
+	# 		XDG_CURRENT_DESKTOP = "hyprland";
+	# 		MOZ_ENABLE_WAYLAND = 1;
+	# 	};
 
-    home.stateVersion = "24.05";
-  };
+  #   home.stateVersion = "24.05";
+  # };
 
   # Keep this outside of Home Manager if you want `root` to have the same Git configuration
   programs.git = {
