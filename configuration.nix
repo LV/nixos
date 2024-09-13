@@ -59,6 +59,7 @@
   users.users.lv = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    ignoreShellProgramCheck = true; # HomeManager is handling the shell configuration
   };
 
   # List packages installed in system profile. To search, run:
@@ -72,10 +73,23 @@
     hyprland
     kitty
     lazygit
-    neovim
     ripgrep
     tmux
+    vim
+    wget
   ];
+
+  home-manager.users.lv = { pkgs, ... }: {
+    home.packages = with pkgs; [
+      firefox
+      neovim
+    ];
+
+    programs.zsh.enable = true;
+
+    home.stateVersion = "24.05";
+  };
+
   programs.git = {
     enable = true;
     config.user = {
