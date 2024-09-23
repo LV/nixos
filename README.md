@@ -7,3 +7,8 @@ _My personal NixOS configuration_
 [TODO]: Verify that these following steps are correct; I'm suspecting we need to install Nix flakes first
 3. Clone this repository
 4. Run `sudo nixos-rebuild switch --flake CWD/#default` where `CWD` is the full filepath of the repository
+
+## Troubleshooting
+### My architecture is not supported!
+
+Run `sudo nixos-generate-config` and then copy over the `/etc/nixos/hardware-configuration.nix` file to `hosts/` in the repo

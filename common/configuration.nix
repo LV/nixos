@@ -7,9 +7,13 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
-      ../../modules/nixos/main-user.nix
+      ../modules/nixos/main-user.nix
       inputs.home-manager.nixosModules.default
+
+      (if builtins.getEnv "NIX_SYSTEM" == "aarch64" then
+        ../hosts/aarch64/hardware-configuration.nix
+      else
+        ../hosts/x86/hardware-configuration.nix)
     ];
 
   # Enable Nix Flakes
