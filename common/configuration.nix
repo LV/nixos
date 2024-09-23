@@ -7,7 +7,11 @@
 {
   imports =
     [
+      # modules
       ../modules/nixos/main-user.nix
+      ../modules/nixos/display-setup.nix
+
+      # home-manager
       inputs.home-manager.nixosModules.default
 
       (if builtins.getEnv "NIX_SYSTEM" == "aarch64" then
@@ -76,7 +80,6 @@
     gcc
     git
     gnumake
-    hyprland
     kitty
     lazygit
     ripgrep

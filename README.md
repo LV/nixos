@@ -12,3 +12,9 @@ _My personal NixOS configuration_
 ### My architecture is not supported!
 
 Run `sudo nixos-generate-config` and then copy over the `/etc/nixos/hardware-configuration.nix` file to `hosts/` in the repo
+
+/TODO/: Fix the configuration if statements for architecture. Currently will only check if system is `aarch64`, and will mark architecture as `x86` if that's not the case. In new architectures such as RISC-V, this will totally fail.
+
+### File not found after editing config and running `make`
+
+You will need to do a `git add .` before running `make`
