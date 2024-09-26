@@ -7,7 +7,7 @@
 {
   imports =
     [
-      # modules
+      # essential modules
       ../modules/nixos/main-user.nix
       ../modules/nixos/display-setup.nix
 
@@ -18,6 +18,9 @@
         ../hosts/aarch64/hardware-configuration.nix
       else
         ../hosts/x86/hardware-configuration.nix)
+
+      # packages
+      ../modules/pkgs/emacs.nix
     ];
 
   # Enable Nix Flakes
@@ -75,14 +78,12 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     cmake
-    emacs
     fzf
     firefox-devedition-bin
     gcc
     git
     gnumake
     kitty
-    ripgrep
     tmux
     vim
     wget
