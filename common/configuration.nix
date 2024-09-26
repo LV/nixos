@@ -77,11 +77,11 @@
     cmake
     emacs
     fzf
+    firefox-devedition-bin
     gcc
     git
     gnumake
     kitty
-    lazygit
     ripgrep
     tmux
     vim
