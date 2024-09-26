@@ -11,9 +11,23 @@ in
 
     # dependencies
     cmake
+    ripgrep
+
+
+    ## Latex
+    texliveFull
+
+    ## VTerm
     libtool
     libvterm
-    ripgrep
+
+
+    ## LSPs
+    ### Nix
+    nil
+
+    ### Python
+    pyright
   ];
 
   # Home Manager configuration for Emacs and dotfiles
