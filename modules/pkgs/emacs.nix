@@ -20,6 +20,7 @@ let
       "--with-pdumper" # Use over `unexexc` for faster startup and dumping
       "--with-pgtk"  # GTK support for Wayland
       # "--with-sound=alsa" # Using ALSA sound system
+      "--with-sqlite3" # Native sqlite3 support
       "--with-tree-sitter" # Enable syntax highlighting and parsing using tree-sitter; better performance editing code
       "--with-x" # Use XWayland as fallback for packages or features not yet ported to Wayland
       "--without-selinux" # Disable as NixOS by default does not use SELinux
@@ -35,6 +36,7 @@ let
       pkgs.libgccjit
       pkgs.libtool
       pkgs.libvterm
+      pkgs.makeWrapper
       pkgs.pkg-config
       pkgs.sqlite
     ];
@@ -49,9 +51,14 @@ in
 
   # Include other necessary packages
   home.packages = with pkgs; [
+    binutils
+    emacsPackages.sqlite3
+    git
+    gnutls
     nil     # Nix LSP
     pyright # Python LSP
     ripgrep
+    sqlite
     texliveFull
   ];
 
