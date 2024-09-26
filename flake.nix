@@ -11,20 +11,16 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.lunix = nixpkgs.lib.nixosSystem {
       system = if builtins.getEnv "NIX_SYSTEM" == "aarch64" then "aarch64-linux"
                else "x86_64-linux";
 
-      specialArgs = { inherit inputs; };
+      specialArgs = {
+        inherit inputs;
+      };
 
       modules = [
         ./common/configuration.nix
-        inputs.home-manager.nixosModules.default
-
-        (if builtins.getEnv "NIX_SYSTEM" == "aarch64" then
-          ./hosts/aarch64/hardware-configuration.nix
-        else
-          ./hosts/x86/hardware-configuration.nix)
       ];
     };
   };

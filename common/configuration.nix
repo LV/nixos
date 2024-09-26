@@ -18,9 +18,6 @@
         ../hosts/aarch64/hardware-configuration.nix
       else
         ../hosts/x86/hardware-configuration.nix)
-
-      # packages
-      ../modules/pkgs/emacs.nix
     ];
 
   # Enable Nix Flakes
@@ -89,21 +86,25 @@
     wget
   ];
 
-  # home-manager.users.lv = { pkgs, ... }: {
-  #   home.packages = with pkgs; [
-  #     firefox
-  #     neovim
-  #   ];
+  home-manager.users.lv = {
+    _module.args = {
+      inputs = inputs;
+    };
 
-  #   programs.zsh.enable = true;
+    imports = [
+      ../modules/pkgs/emacs.nix
+    ];
 
-	# 	home.sessionVariables = {
-	# 		XDG_CURRENT_DESKTOP = "hyprland";
-	# 		MOZ_ENABLE_WAYLAND = 1;
-	# 	};
+    home.username = "lv";
+    home.homeDirectory = "/home/lv";
 
-  #   home.stateVersion = "24.05";
-  # };
+    home.packages = with pkgs; [
+      git
+    ];
+
+    home.stateVersion = "24.05";
+    programs.home-manager.enable = true;
+  };
 
   # Keep this outside of Home Manager if you want `root` to have the same Git configuration
   programs.git = {

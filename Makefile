@@ -5,4 +5,4 @@ DIR := $(shell pwd)
 all: switch
 
 switch:
-	sudo nixos-rebuild switch --flake $(DIR)/#default
+	sudo nixos-rebuild switch --flake $(DIR)/#lunix --show-trace
