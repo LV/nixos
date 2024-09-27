@@ -52,9 +52,12 @@ in
   # Include other necessary packages
   home.packages = with pkgs; [
     binutils
+    emacsPackages.mermaid-mode
+    emacsPackages.ob-mermaid
     emacsPackages.sqlite3
     git
     gnutls
+    mermaid-cli
     nil     # Nix LSP
     pyright # Python LSP
     ripgrep
