@@ -10,6 +10,7 @@
       # essential modules
       ../modules/nixos/main-user.nix
       ../modules/nixos/display-setup.nix
+      ../modules/nixos/network.nix
 
       # home-manager
       inputs.home-manager.nixosModules.default
@@ -26,6 +27,8 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  nixpkgs.config.allowUnfree = true;
 
   networking.hostName = "lunix";
   # Pick only one of the below networking options.
