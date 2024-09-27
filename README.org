@@ -1,0 +1,53 @@
+#+title: NixOS
+#+author: Luis Victoria
+
+/My personal NixOS configuration/
+
+** Getting started
+1. Download the [[https://nixos.org/download/#nixos-iso][minimal ISO image]]
+2. Follow the NixOS [[https://nixos.org/manual/nixos/stable/#sec-installation-manual][instructions for a manual installation]]
+3. Clone this repository
+4. Run:
+   #+begin_src sh
+     sudo nixos-rebuild switch --flake CWD/#default
+   #+end_src
+
+   where ~CWD~ is the full filepath of the repository (or just run ~make~)
+
+** Setting up pre-commit
+I don't know what leads to this behavior, but new files that have yet to be staged are not recognized by the nix flake as existing, and thus will fail. The contents of the file don't matter so long as the file 'exists' in the repo (at least being staged)
+
+This is especially working for =secrets.nix=, which needs to exist in the repo. To prevent myself from doing something stupid, I have done the following:
+
+1. Create the =.git/hooks/pre-commit= file:
+   #+begin_src sh
+     touch .git/hooks/pre-commit
+   #+end_src
+
+2. Add the following code to the script file:
+#+begin_src sh
+  #!/bin/sh
+  # Check if secrets.nix is staged for commit
+  if git diff --cached --name-only | grep -q "^secrets.nix$"; then
+    echo "Error: Attempting to commit secrets.nix"
+    exit 1
+  fi
+#+end_src
+
+3. Make the file executable:
+#+begin_src sh
+  chmod +x .git/hooks/pre-commit
+#+end_src
+
+And now any attempt to commit ~secrets.nix~ will fail as they should
+
+** Troubleshooting
+*** My architecture is not supported!
+
+Run ~sudo nixos-generate-config~ and then copy over the =/etc/nixos/hardware-configuration.nix= file to =hosts/= in the repo
+
+/TODO/: Fix the configuration if statements for architecture. Currently will only check if system is ~aarch64~, and will mark architecture as ~x86~ if that's not the case. In new architectures such as RISC-V, this will totally fail.
+
+*** File not found after editing config and running ~make~
+
+You will need to do a ~git add .~ before running ~make~
