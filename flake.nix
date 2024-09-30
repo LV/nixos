@@ -12,8 +12,7 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations.lunix = nixpkgs.lib.nixosSystem {
-      system = if builtins.getEnv "NIX_SYSTEM" == "aarch64" then "aarch64-linux"
-               else "x86_64-linux";
+      system = "aarch64-linux";
 
       specialArgs = {
         inherit inputs;

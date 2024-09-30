@@ -15,10 +15,7 @@
       # home-manager
       inputs.home-manager.nixosModules.default
 
-      (if builtins.getEnv "NIX_SYSTEM" == "aarch64" then
-        ../hosts/aarch64/hardware-configuration.nix
-      else
-        ../hosts/x86/hardware-configuration.nix)
+      ../hosts/aarch64/hardware-configuration.nix
     ];
 
   # Enable Nix Flakes
@@ -79,7 +76,7 @@
   environment.systemPackages = with pkgs; [
     cmake
     fzf
-    firefox-devedition-bin
+    firefox
     gcc
     git
     gnumake
