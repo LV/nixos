@@ -85,6 +85,12 @@ in
       if [ ! -d ${configDir} ]; then
         ${pkgs.git}/bin/git clone https://${secrets.githubUsername}:${secrets.githubToken}@github.com/lv/emacs.git ${configDir}
       fi
+
+      # TODO: Add a block to clone the `org` directory from my local network
+      # Create the `~/org/roam` directory if it does not exist as a band-aid to not break the rest of the config
+      if [ ! -d ${config.home.homeDirectory}/org/roam ]; then
+        mkdir -p ${config.home.homeDirectory}/org/roam
+      fi
     '';
   };
 }
