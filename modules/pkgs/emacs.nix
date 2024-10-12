@@ -57,6 +57,7 @@ in
     emacsPackages.sqlite3
     git
     gnutls
+    libtool
     mermaid-cli
     nil     # Nix LSP
     pyright # Python LSP
