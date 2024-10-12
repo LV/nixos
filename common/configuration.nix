@@ -15,7 +15,7 @@
       # home-manager
       inputs.home-manager.nixosModules.default
 
-      ../hosts/aarch64/hardware-configuration.nix
+      ../hosts/x86/hardware-configuration.nix
     ];
 
   # Enable Nix Flakes
