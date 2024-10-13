@@ -93,6 +93,7 @@
 
     imports = [
       ../modules/pkgs/emacs.nix
+      ../modules/pkgs/hyprland.nix
     ];
 
     home.username = "lv";
