@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
     swaylock
     hyprland
+    waybar
   ];
 
   # Define systemd service for the lock screen (swaylock)
@@ -23,6 +24,16 @@
     after = [ "swaylock.service" ];
     serviceConfig = {
       ExecStart = "${pkgs.hyprland}/bin/Hyprland";
+    };
+  };
+
+  # Define systemd service for Waybar
+  systemd.user.services.waybar = {
+    description = "Waybar Status Bar";
+    wantedBy = [ "graphical-session.target" ];
+    after = [ "hyprland.service" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.waybar}/bin/waybar";
     };
   };
 }
