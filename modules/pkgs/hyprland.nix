@@ -5,6 +5,11 @@ let
   hyprlandConfigDir = "${config.home.homeDirectory}/.config/hypr";
 in
 {
+  # Include necessary dependencies for Hyprland config
+  home.packages = with pkgs; [
+    waybar
+  ];
+
   # Home Manager configuration for getting Hyprland dotfiles
   home.activation = {
     cloneHyprlandDotfiles = inputs.home-manager.lib.hm.dag.entryBefore ["writeBoundary"] ''
