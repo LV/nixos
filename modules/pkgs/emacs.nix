@@ -4,7 +4,7 @@ let
   secrets = import ../../secrets.nix;
   emacsConfigDir = "${config.home.homeDirectory}/.config/emacs";
 
-  emacsWithCustomOptions = pkgs.emacs.overrideAttrs (oldAttrs: rec {
+  emacsWithCustomOptions = pkgs.emacs.overrideAttrs (oldAttrs: {
     configureFlags = (oldAttrs.configureFlags or []) ++ [
       # "--enable-profiling" # Use low-level profiling via gprof; reduces perfomance and replaces Emacs' profiler.el
       "--enable-link-time-optimization" # Compiler optimization performed on per-file basis, better performance at cost of greater build time
