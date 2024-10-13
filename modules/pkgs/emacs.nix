@@ -1,8 +1,8 @@
-{ pkgs, config, inputs, ... }:
+{ config, inputs, pkgs, ... }:
 
 let
   secrets = import ../../secrets.nix;
-  configDir = "${config.home.homeDirectory}/.config/emacs";
+  emacsConfigDir = "${config.home.homeDirectory}/.config/emacs";
 
   emacsWithCustomOptions = pkgs.emacs.overrideAttrs (oldAttrs: rec {
     configureFlags = (oldAttrs.configureFlags or []) ++ [
@@ -75,15 +75,17 @@ in
   
   # Home Manager configuration for Emacs and dotfiles
   home.activation = {
-    cloneDotfiles = inputs.home-manager.lib.hm.dag.entryBefore ["writeBoundary"] ''
+    cloneEmacsDotfiles = inputs.home-manager.lib.hm.dag.entryBefore ["writeBoundary"] ''
       # Remove .emacs.d if it exists
+      #   We want to use =~/.config/emacs= instead
+      #   Defaults to =~/.emacs.d= first
       if [ -d ${config.home.homeDirectory}/.emacs.d ]; then
         rm -rf ${config.home.homeDirectory}/.emacs.d
       fi
 
       # Clone the Emacs config if it doesn't already exist
-      if [ ! -d ${configDir} ]; then
-        ${pkgs.git}/bin/git clone https://${secrets.githubUsername}:${secrets.githubToken}@github.com/lv/emacs.git ${configDir}
+      if [ ! -d ${emacsConfigDir} ]; then
+        ${pkgs.git}/bin/git clone https://${secrets.githubUsername}:${secrets.githubToken}@github.com/lv/emacs.git ${emacsConfigDir}
       fi
 
       # TODO: Add a block to clone the `org` directory from my local network
