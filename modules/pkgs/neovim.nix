@@ -10,6 +10,13 @@ in
     enable = true;
   };
 
+  # Include necessary packages
+  home.packages = with pkgs; [
+    lazygit
+    ripgrep
+    wl-clipboard
+  ];
+
   # Home Manager configuration for getting Neovim dotfiles
   home.activation = {
     cloneNeovimDotfiles = inputs.home-manager.lib.hm.dag.entryBefore ["writeBoundary"] ''
