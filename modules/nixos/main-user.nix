@@ -19,7 +19,8 @@ in
     users.users.${cfg.userName} = {
       isNormalUser = true;
       description = "main user";
-      extraGroups = [ "wheel" ]; # enable `sudo` for the user
+      extraGroups = [ "audio" "wheel" ]; # audio: Give permissions to modify audio (pipeware and alsa)
+                                         # wheel: enable `sudo` for the user
     };
   };
 }
