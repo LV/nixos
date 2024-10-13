@@ -8,6 +8,10 @@
     waybar
   ];
 
+  programs.hyprland = {
+    enable = true;
+  };
+
   # Define systemd service for the lock screen (swaylock)
   systemd.user.services.swaylock = {
     description = "Swaylock Lock Screen";
