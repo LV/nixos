@@ -26,6 +26,7 @@ let
       "--without-selinux" # Disable as NixOS by default does not use SELinux
     ];
 
+    # TODO: Investigate which of these are useless (I suspect many of them are)
     nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [
       pkgs.autoconf
       pkgs.automake
@@ -52,6 +53,7 @@ in
   # Include other necessary packages
   home.packages = with pkgs; [
     binutils
+    cmake
     emacsPackages.mermaid-mode
     emacsPackages.ob-mermaid
     emacsPackages.sqlite3
