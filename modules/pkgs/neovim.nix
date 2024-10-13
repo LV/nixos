@@ -12,7 +12,10 @@ in
 
   # Include necessary packages
   home.packages = with pkgs; [
+    efm-langserver
     lazygit
+    lua-language-server
+    nixd
     ripgrep
     wl-clipboard
   ];
