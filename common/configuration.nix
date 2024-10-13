@@ -94,6 +94,7 @@
     imports = [
       ../modules/pkgs/emacs.nix
       ../modules/pkgs/hyprland.nix
+      ../modules/pkgs/neovim.nix
     ];
 
     home.username = "lv";
