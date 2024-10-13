@@ -8,6 +8,7 @@ in
   # Include necessary dependencies for Hyprland config
   home.packages = with pkgs; [
     waybar
+    wofi
   ];
 
   # Home Manager configuration for getting Hyprland dotfiles
