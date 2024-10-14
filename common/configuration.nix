@@ -72,7 +72,6 @@
     gcc
     git
     gnumake
-    kitty
     tmux
     vim
     wget
@@ -86,6 +85,7 @@
     imports = [
       ../modules/pkgs/emacs.nix
       ../modules/pkgs/hyprland.nix
+      ../modules/pkgs/kitty.nix
       ../modules/pkgs/neovim.nix
     ];
 
