@@ -3,8 +3,8 @@
   programs.kitty = {
     enable = true;
 
-    extraConfig = ''
-      background_opacity 0.9
-    '';
+    settings = {
+      background_opacity = "0.65";
+    };
   };
 }
