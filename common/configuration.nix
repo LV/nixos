@@ -87,6 +87,7 @@
       ../modules/pkgs/hyprland.nix
       ../modules/pkgs/kitty.nix
       ../modules/pkgs/neovim.nix
+      ../modules/pkgs/xournalpp.nix
     ];
 
     home.username = "lv";
