@@ -5,7 +5,6 @@ let
   nvimConfigDir = "${config.home.homeDirectory}/.config/nvim";
 in
 {
-  # Use customized Emacs package via programs.emacs.package
   programs.neovim = {
     enable = true;
   };
