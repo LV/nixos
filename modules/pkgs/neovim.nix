@@ -13,6 +13,7 @@ in
   home.packages = with pkgs; [
     clang-tools
     efm-langserver
+    fzf
     lazygit
     lua-language-server
     nixd
