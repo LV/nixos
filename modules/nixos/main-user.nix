@@ -19,8 +19,9 @@ in
     users.users.${cfg.userName} = {
       isNormalUser = true;
       description = "main user";
-      extraGroups = [ "audio" "wheel" ]; # audio: Give permissions to modify audio (pipeware and alsa)
-                                         # wheel: enable `sudo` for the user
+      extraGroups = [ "audio" "docker" "wheel" ]; # audio: Give permissions to modify audio (pipeware and alsa)
+                                                  # docker: Get access to the socket
+                                                  # wheel: enable `sudo` for the user
     };
   };
 }

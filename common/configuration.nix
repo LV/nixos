@@ -12,6 +12,10 @@
       ../modules/nixos/display-setup.nix
       ../modules/nixos/main-user.nix
       ../modules/nixos/network.nix
+      ../modules/nixos/shell.nix
+
+      # root packages
+      ../modules/nixos/pkgs/docker.nix
 
       # home-manager
       inputs.home-manager.nixosModules.default
@@ -82,7 +86,6 @@
     };
 
     imports = [
-      ../modules/pkgs/docker.nix
       ../modules/pkgs/emacs.nix
       ../modules/pkgs/hyprland.nix
       ../modules/pkgs/kitty.nix
