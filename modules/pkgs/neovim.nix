@@ -11,6 +11,7 @@ in
 
   # Include necessary packages
   home.packages = with pkgs; [
+    clang-tools
     efm-langserver
     lazygit
     lua-language-server
