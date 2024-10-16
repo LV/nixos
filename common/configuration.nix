@@ -82,6 +82,7 @@
     };
 
     imports = [
+      ../modules/pkgs/docker.nix
       ../modules/pkgs/emacs.nix
       ../modules/pkgs/hyprland.nix
       ../modules/pkgs/kitty.nix
