@@ -85,6 +85,7 @@
     };
 
     imports = [
+      ../modules/pkgs/bear.nix
       ../modules/pkgs/emacs.nix
       ../modules/pkgs/flameshot.nix
       ../modules/pkgs/hyprland.nix
