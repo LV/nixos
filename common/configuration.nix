@@ -91,6 +91,7 @@
       ../modules/pkgs/flameshot.nix
       ../modules/pkgs/hyprland.nix
       ../modules/pkgs/kitty.nix
+      ../modules/pkgs/lazygit.nix
       ../modules/pkgs/neovim.nix
       ../modules/pkgs/xournalpp.nix
       ../modules/pkgs/zsh.nix
