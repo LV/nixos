@@ -86,6 +86,7 @@
 
     imports = [
       ../modules/pkgs/emacs.nix
+      ../modules/pkgs/flameshot.nix
       ../modules/pkgs/hyprland.nix
       ../modules/pkgs/kitty.nix
       ../modules/pkgs/neovim.nix
