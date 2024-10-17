@@ -12,6 +12,7 @@
       ../modules/nixos/display-setup.nix
       ../modules/nixos/main-user.nix
       ../modules/nixos/network.nix
+      ../modules/nixos/shell.nix
 
       # root packages
       ../modules/nixos/pkgs/docker.nix
@@ -92,6 +93,7 @@
       ../modules/pkgs/kitty.nix
       ../modules/pkgs/neovim.nix
       ../modules/pkgs/xournalpp.nix
+      ../modules/pkgs/zsh.nix
     ];
 
     home.username = "lv";
