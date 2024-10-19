@@ -94,7 +94,6 @@
       ../modules/pkgs/lazygit.nix
       ../modules/pkgs/neovim.nix
       ../modules/pkgs/xournalpp.nix
-      ../modules/pkgs/zsh.nix
     ];
 
     home.username = "lv";
