@@ -1,7 +1,7 @@
 { config, inputs, pkgs, ... }:
 
 let
-  secrets = import ../../secrets.nix;
+  secrets = import ../../../secrets.nix;
   nvimConfigDir = "${config.home.homeDirectory}/.config/nvim";
 in
 {

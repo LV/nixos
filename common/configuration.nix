@@ -86,14 +86,14 @@
     };
 
     imports = [
-      ../modules/pkgs/bear.nix
-      ../modules/pkgs/emacs.nix
-      ../modules/pkgs/flameshot.nix
-      ../modules/pkgs/hyprland.nix
-      ../modules/pkgs/kitty.nix
-      ../modules/pkgs/lazygit.nix
-      ../modules/pkgs/neovim.nix
-      ../modules/pkgs/xournalpp.nix
+      ../modules/home/pkgs/bear.nix
+      ../modules/home/pkgs/emacs.nix
+      ../modules/home/pkgs/flameshot.nix
+      ../modules/home/pkgs/hyprland.nix
+      ../modules/home/pkgs/kitty.nix
+      ../modules/home/pkgs/lazygit.nix
+      ../modules/home/pkgs/neovim.nix
+      ../modules/home/pkgs/xournalpp.nix
     ];
 
     home.username = "lv";
