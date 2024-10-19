@@ -80,6 +80,7 @@ in
         format-ethernet = "{ifname}: {ipaddr}/{cidr}   up: {bandwidthUpBits} down: {bandwidthDownBits}";
         format-linked = "{ifname} (No IP) ";
         format-wifi = "{essid} ({signalStrength}%) ";
+        on-click = "kitty -e nmtui";
       };
       pulseaudio = {
         format = "{volume}% {icon} {format_source}";
