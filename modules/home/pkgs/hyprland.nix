@@ -7,7 +7,6 @@ in
 {
   # Include necessary dependencies for Hyprland config
   home.packages = with pkgs; [
-    waybar
     wofi
   ];
 
@@ -19,5 +18,9 @@ in
         ${pkgs.git}/bin/git clone https://${secrets.githubUsername}:${secrets.githubToken}@github.com/lv/hypr-config.git ${hyprlandConfigDir}
       fi
     '';
+  };
+
+  programs.waybar = {
+    enable = true;
   };
 }
