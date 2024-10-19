@@ -8,14 +8,14 @@
   imports =
     [
       # essential modules
-      ../modules/nixos/audio.nix
-      ../modules/nixos/display-setup.nix
-      ../modules/nixos/main-user.nix
-      ../modules/nixos/network.nix
-      ../modules/nixos/shell.nix
+      ../modules/system/audio.nix
+      ../modules/system/display-setup.nix
+      ../modules/system/main-user.nix
+      ../modules/system/network.nix
+      ../modules/system/shell.nix
 
       # root packages
-      ../modules/nixos/pkgs/docker.nix
+      ../modules/system/pkgs/docker.nix
 
       # home-manager
       inputs.home-manager.nixosModules.default
