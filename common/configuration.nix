@@ -86,6 +86,7 @@
     };
 
     imports = [
+      ../modules/home/pkgs/age.nix
       ../modules/home/pkgs/bear.nix
       ../modules/home/pkgs/emacs.nix
       ../modules/home/pkgs/flameshot.nix
