@@ -35,9 +35,7 @@ in
     TTYVTDisallocate = true;
   };
 
-  #environment.etc."greetd/environments".text = ''
-  #  Hyprland
-  #  fish
-  #  bash
-  #'';
+  environment.etc."greetd/environments".text = ''
+    Hyprland
+  '';
 }
