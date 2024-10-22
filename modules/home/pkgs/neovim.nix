@@ -16,6 +16,7 @@ in
     fzf
     lazygit
     lua-language-server
+    luajitPackages.luacheck
     nixd
     ripgrep
     wl-clipboard
