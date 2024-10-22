@@ -16,6 +16,7 @@
 
       # root packages
       ../modules/system/pkgs/docker.nix
+      ../modules/system/pkgs/unzip.nix
 
       # home-manager
       inputs.home-manager.nixosModules.default
