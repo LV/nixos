@@ -92,6 +92,7 @@
       ../modules/home/pkgs/hyprland.nix
       ../modules/home/pkgs/kitty.nix
       ../modules/home/pkgs/lazygit.nix
+      ../modules/home/pkgs/neovide.nix
       ../modules/home/pkgs/neovim.nix
       ../modules/home/pkgs/xournalpp.nix
     ];
