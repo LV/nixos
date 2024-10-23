@@ -14,8 +14,9 @@
       ../modules/system/network.nix
       ../modules/system/shell.nix
 
-      # root packages
+      # system packages
       ../modules/system/pkgs/docker.nix
+      ../modules/system/pkgs/firefox.nix
       ../modules/system/pkgs/unzip.nix
 
       # home-manager
@@ -72,7 +73,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    firefox
     gcc
     git
     gnumake
