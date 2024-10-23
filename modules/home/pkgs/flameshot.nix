@@ -5,3 +5,5 @@
     (flameshot.override { enableWlrSupport = true; })
   ];
 }
+
+# TODO: Fix broken clipboard
