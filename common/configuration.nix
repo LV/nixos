@@ -97,6 +97,7 @@
       ../modules/home/pkgs/neovim.nix
       ../modules/home/pkgs/typst.nix
       ../modules/home/pkgs/xournalpp.nix
+      ../modules/home/pkgs/zathura.nix
     ];
 
     home.username = "lv";
