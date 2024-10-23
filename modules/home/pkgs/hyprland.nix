@@ -8,6 +8,7 @@ in
   # Include necessary dependencies for Hyprland config
   home.packages = with pkgs; [
     wofi
+    swaybg
     swaylock
   ];
 
