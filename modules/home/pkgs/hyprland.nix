@@ -111,3 +111,5 @@ in
     }];
   };
 }
+
+# TODO: Convert ~hyprland.conf~ into a Nix configuration
