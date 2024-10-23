@@ -8,6 +8,8 @@
     settings = {
       background_blur = 5;
       background_opacity = "0.65";
+      font_family = "PragmataPro Mono Liga";
+      font_size = "19";
     };
   };
 }
