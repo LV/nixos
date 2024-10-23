@@ -19,6 +19,7 @@ in
     luajitPackages.luacheck
     nixd
     ripgrep
+    tinymist
     wl-clipboard
   ];
 
