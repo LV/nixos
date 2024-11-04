@@ -21,6 +21,7 @@
 
       # home-manager
       inputs.home-manager.nixosModules.default
+      ./home.nix
 
       ../hosts/x86/hardware-configuration.nix
     ];
@@ -81,37 +82,6 @@
     wget
   ];
 
-  home-manager.users.lv = {
-    _module.args = {
-      inputs = inputs;
-    };
-
-    imports = [
-      ../modules/home/pkgs/bear.nix
-      ../modules/home/pkgs/emacs.nix
-      ../modules/home/pkgs/flameshot.nix
-      ../modules/home/pkgs/go.nix
-      ../modules/home/pkgs/hyprland.nix
-      ../modules/home/pkgs/kitty.nix
-      ../modules/home/pkgs/lazygit.nix
-      ../modules/home/pkgs/neovide.nix
-      ../modules/home/pkgs/neovim.nix
-      ../modules/home/pkgs/python.nix
-      ../modules/home/pkgs/typst.nix
-      ../modules/home/pkgs/xournalpp.nix
-      ../modules/home/pkgs/zathura.nix
-    ];
-
-    home.username = "lv";
-    home.homeDirectory = "/home/lv";
-
-    home.packages = with pkgs; [
-      git
-    ];
-
-    home.stateVersion = "24.05";
-    programs.home-manager.enable = true;
-  };
 
   # Keep this outside of Home Manager if you want `root` to have the same Git configuration
   programs.git = {
