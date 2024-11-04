@@ -96,6 +96,7 @@
       ../modules/home/pkgs/lazygit.nix
       ../modules/home/pkgs/neovide.nix
       ../modules/home/pkgs/neovim.nix
+      ../modules/home/pkgs/python.nix
       ../modules/home/pkgs/typst.nix
       ../modules/home/pkgs/xournalpp.nix
       ../modules/home/pkgs/zathura.nix
