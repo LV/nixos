@@ -2,6 +2,8 @@
 
 {
   home-manager.users.lv = {
+    nixpkgs.config.allowUnfree = true;
+
     _module.args = {
       inputs = inputs;
     };
