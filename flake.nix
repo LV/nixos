@@ -8,9 +8,19 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-secrets = {
+      url = "git+ssh://git@github.com/lv/nix-secrets";
+      flake = false;
+    };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, ... }@inputs: {
+  outputs = { nixpkgs, sops-nix, ... }@inputs: {
     nixosConfigurations.lunix = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
@@ -20,6 +30,7 @@
 
       modules = [
         ./common/configuration.nix
+        sops-nix.nixosModules.sops
       ];
     };
   };

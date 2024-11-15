@@ -2,8 +2,11 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ pkgs, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
+let
+  secretspath = builtins.toString inputs.nix-secrets;
+in
 {
   imports =
     [
@@ -67,9 +70,27 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
+  sops = {
+    defaultSopsFile = "${secretspath}/secrets.yaml";
+    age = {
+      sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+      keyFile = "/var/lib/sops-nix/key.txt";
+      generateKey = true;
+    };
+    secrets = {
+      lv_passwd = {
+        neededForUsers = true;
+      };
+    };
+  };
+
+  users.mutableUsers = false; # Force password to be what is always set in the secrets file
   # main-user.nix
-  main-user.enable = true;
-  main-user.userName = "lv";
+  main-user = {
+    enable = true;
+    userName = "lv";
+    hashedPasswordFile = config.sops.secrets.lv_passwd.path;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
