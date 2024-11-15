@@ -13,6 +13,14 @@ in
         username
       '';
     };
+
+    main-user.hashedPasswordFile = lib.mkOption {
+      type = lib.types.str;
+      default = null;
+      description = ''
+        Path to a file containing the hashed password for the main user.
+      '';
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -24,6 +32,7 @@ in
         "docker" # docker: Get access to the socket
         "wheel"  # wheel: enable `sudo` for the user
       ];
+      hashedPasswordFile = cfg.hashedPasswordFile;
     };
   };
 }
