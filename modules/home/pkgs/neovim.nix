@@ -19,6 +19,7 @@ in
     nixd
     ripgrep
     tinymist
+    vimPlugins.firenvim
     wl-clipboard
   ];
 
