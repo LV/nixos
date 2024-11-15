@@ -8,8 +8,9 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      ll = "ls -l";
-      update = "sudo nixos-rebuild switch";
+      diff = "delta";
+      gg = "lazygit";
+      v = "nvim";
     };
 
     history = {
