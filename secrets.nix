@@ -1,1 +1,0 @@
-secrets.template.nix
