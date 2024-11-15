@@ -9,6 +9,7 @@
     shellAliases = {
       diff = "delta";
       gg = "lazygit";
+      ls = "ls --color=auto";
       v = "nvim";
     };
 
