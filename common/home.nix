@@ -9,6 +9,7 @@
     };
 
     imports = [
+      ../modules/home/zsh.nix
       ../modules/home/pkgs/bear.nix
       ../modules/home/pkgs/delta.nix
       ../modules/home/pkgs/emacs.nix
