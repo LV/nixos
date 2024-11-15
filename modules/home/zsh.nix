@@ -35,8 +35,6 @@
     # };
   };
 
-  home.file.".config/p10k.zsh".source = ../../configs/p10k.zsh;
-
   # Explicitly write a .zshrc file to your home directory
   home.file.".zshrc".text = ''
     # Add any additional configurations here
