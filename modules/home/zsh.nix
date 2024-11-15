@@ -4,7 +4,6 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    # autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
 
     shellAliases = {
@@ -34,4 +33,13 @@
     #   theme = "robbyrussell";
     # };
   };
+
+  home.file.".config/p10k.zsh".source = ../../configs/p10k.zsh;
+
+  # Explicitly write a .zshrc file to your home directory
+  home.file.".zshrc".text = ''
+    # Add any additional configurations here
+    export ZSH_DISABLE_COMPFIX=true
+    export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+  '';
 }
