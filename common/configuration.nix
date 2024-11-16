@@ -20,7 +20,6 @@ in
       ../modules/system/pkgs/docker.nix
       ../modules/system/pkgs/firefox.nix
       ../modules/system/pkgs/unzip.nix
-      ../modules/system/pkgs/zsh.nix
 
       # home-manager
       inputs.home-manager.nixosModules.default
