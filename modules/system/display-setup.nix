@@ -16,7 +16,7 @@ let
 in
 {
   # Install swaylock and Hyprland
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     hyprland
   ];
 
