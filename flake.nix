@@ -22,7 +22,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, sops-nix, ... }@inputs:
+  outputs = { hyprland, nixpkgs, home-manager, sops-nix, ... }@inputs:
     let
       system = "x86_64-linux";
     in
@@ -37,6 +37,7 @@
         modules = [
           ./common/configuration.nix
           sops-nix.nixosModules.sops
+          inputs.hyprland.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager = {
