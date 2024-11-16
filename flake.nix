@@ -9,6 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
     nix-secrets = {
       url = "git+ssh://git@github.com/lv/nix-secrets";
       flake = false;
