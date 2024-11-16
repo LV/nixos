@@ -20,7 +20,7 @@
     };
   };
 
-  outputs = { nixpkgs, sops-nix, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, sops-nix, ... }@inputs: {
     nixosConfigurations.lunix = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
@@ -32,6 +32,18 @@
         ./common/configuration.nix
         sops-nix.nixosModules.sops
       ];
+    };
+
+    homeManagerConfigurations = {
+      lv = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        homeDirectory = "/home/lv";
+        username = "lv";
+        configuration = import ./common/home.nix {
+          inherit inputs;
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        };
+      };
     };
   };
 }
