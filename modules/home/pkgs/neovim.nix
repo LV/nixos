@@ -28,7 +28,7 @@ in
     cloneDotfilesNeovim = inputs.home-manager.lib.hm.dag.entryBefore ["writeBoundary"] ''
       # Clone the Neovim config if it doesn't already exist
       if [ ! -d ${nvimConfigDir} ]; then
-        ${pkgs.git}/bin/git clone git@github.com/lv/nvim-config.git ${nvimConfigDir}
+        ${pkgs.git}/bin/git clone git@github.com:lv/nvim-config.git ${nvimConfigDir}
       fi
     '';
   };

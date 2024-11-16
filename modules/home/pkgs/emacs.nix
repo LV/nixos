@@ -86,7 +86,7 @@ in
 
       # Clone the Emacs config if it doesn't already exist
       if [ ! -d ${emacsConfigDir} ]; then
-        ${pkgs.git}/bin/git clone git@github.com/lv/emacs.git ${emacsConfigDir}
+        ${pkgs.git}/bin/git clone git@github.com:lv/emacs.git ${emacsConfigDir}
       fi
 
       # TODO: Add a block to clone the `org` directory from my local network
