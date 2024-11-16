@@ -23,6 +23,7 @@
       ../modules/home/pkgs/neovim.nix
       ../modules/home/pkgs/obsidian.nix
       ../modules/home/pkgs/python.nix
+      ../modules/home/pkgs/spotify.nix
       ../modules/home/pkgs/taskwarrior.nix
       ../modules/home/pkgs/typst.nix
       ../modules/home/pkgs/xournalpp.nix
