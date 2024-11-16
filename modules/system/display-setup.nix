@@ -1,6 +1,17 @@
 { pkgs, ... }:
 
 let
+
+  flake-compat = builtins.fetchTarball {
+    url = "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
+    sha256 = "0m9grvfsbwmvgwaxvdzv6cmyvjnlww004gfxjvcl806ndqaxzy4j";
+  };
+  hyprland = (import flake-compat {
+    src = builtins.fetchTarball {
+      url = "https://github.com/hyprwm/Hyprland/archive/main.tar.gz";
+      sha256 = "1dl6mm0pj4zfbzk3yxmw6yd16brfnd9n16clrlhyjcjq1sdw28sv";
+    };
+  }).defaultNix;
   tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
 in
 {
@@ -11,6 +22,12 @@ in
 
   programs.hyprland = {
     enable = true;
+
+    # Set the flake package
+    package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+
+    # make sure to also set the portal package, so that they are in sync
+    portalPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
   services.greetd = {
