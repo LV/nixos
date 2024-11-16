@@ -20,30 +20,33 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, sops-nix, ... }@inputs: {
-    nixosConfigurations.lunix = nixpkgs.lib.nixosSystem {
+  outputs = { nixpkgs, home-manager, sops-nix, ... }@inputs:
+    let
       system = "x86_64-linux";
+    in
+    {
+      nixosConfigurations.lunix = nixpkgs.lib.nixosSystem {
+        inherit system;
 
-      specialArgs = {
-        inherit inputs;
-      };
-
-      modules = [
-        ./common/configuration.nix
-        sops-nix.nixosModules.sops
-      ];
-    };
-
-    homeManagerConfigurations = {
-      lv = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        homeDirectory = "/home/lv";
-        username = "lv";
-        configuration = import ./common/home.nix {
+        specialArgs = {
           inherit inputs;
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
         };
+
+        modules = [
+          ./common/configuration.nix
+          sops-nix.nixosModules.sops
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.lv = import ./common/home.nix;
+              extraSpecialArgs = {
+                inherit inputs;
+              };
+            };
+          }
+        ];
       };
     };
-  };
 }
