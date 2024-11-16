@@ -11,6 +11,7 @@ in
       ../modules/system/display-setup.nix
       ../modules/system/main-user.nix
       ../modules/system/network.nix
+      ../modules/system/ssh.nix
 
       # system packages
       ../modules/system/pkgs/docker.nix

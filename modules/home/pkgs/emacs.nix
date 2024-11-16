@@ -78,19 +78,23 @@ in
   home.activation = {
     cloneEmacsDotfiles = inputs.home-manager.lib.hm.dag.entryBefore ["writeBoundary"] ''
       # Remove .emacs.d if it exists
-      #   We want to use =~/.config/emacs= instead
-      #   Defaults to =~/.emacs.d= first
       if [ -d ${config.home.homeDirectory}/.emacs.d ]; then
         rm -rf ${config.home.homeDirectory}/.emacs.d
       fi
 
       # Clone the Emacs config if it doesn't already exist
       if [ ! -d ${emacsConfigDir} ]; then
-        ${pkgs.git}/bin/git clone git@github.com:lv/emacs.git ${emacsConfigDir}
+        # First try using SSH with explicit SSH command
+        if ! GIT_SSH_COMMAND="${pkgs.openssh}/bin/ssh" ${pkgs.git}/bin/git clone git@github.com:lv/emacs.git ${emacsConfigDir} 2>/dev/null; then
+          # If SSH fails, try HTTPS
+          if ! ${pkgs.git}/bin/git clone https://github.com/lv/emacs.git ${emacsConfigDir}; then
+            echo "Failed to clone Emacs config repository using both SSH and HTTPS"
+            exit 1
+          fi
+        fi
       fi
 
-      # TODO: Add a block to clone the `org` directory from my local network
-      # Create the `~/org/roam` directory if it does not exist as a band-aid to not break the rest of the config
+      # Create the org/roam directory if it doesn't exist
       if [ ! -d ${config.home.homeDirectory}/org/roam ]; then
         mkdir -p ${config.home.homeDirectory}/org/roam
       fi
