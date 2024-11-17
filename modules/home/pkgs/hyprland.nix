@@ -4,29 +4,39 @@ let
   hyprlandConfigDir = "${config.home.homeDirectory}/.config/hypr";
 in
 {
+  wayland.windowManager.hyprland = {
+    enable = true;
+    systemd.enable = true;
+    systemd.variables = ["--all"];
+
+    settings = {
+      "$mod" = "SUPER";
+
+      monitor = ",preferred,auto,1";
+
+      exec-once = [
+        "waybar"
+      ];
+
+      bind = [
+        "$mod, Return, exec, kitty"
+        "$mod, Q, killactive"
+        "$mod, M, exit"
+        "$mod, E, exec, dolphin"
+        "$mod, V, togglefloating"
+        "$mod, Space, exec, wofi --show drun"
+        "$mod, P, pseudo"
+        "$mod, J, togglesplit"
+      ];
+    };
+  };
+
   # Include necessary dependencies for Hyprland config
   home.packages = with pkgs; [
     wofi
     swaybg
     swaylock
   ];
-
-  # Home Manager configuration for getting Hyprland dotfiles
-  home.activation = {
-    cloneHyprlandDotfiles = inputs.home-manager.lib.hm.dag.entryBefore ["writeBoundary"] ''
-      # Clone the Hyprland config if it doesn't already exist
-      if [ ! -d ${hyprlandConfigDir} ]; then
-        # First try using SSH with explicit SSH command
-        if ! GIT_SSH_COMMAND="${pkgs.openssh}/bin/ssh" ${pkgs.git}/bin/git clone git@github.com:lv/hypr-config.git ${hyprlandConfigDir} 2>/dev/null; then
-          # If SSH fails, try HTTPS
-          if ! ${pkgs.git}/bin/git clone https://github.com/lv/hypr-config.git ${hyprlandConfigDir}; then
-            echo "Failed to clone Hyprland config repository using both SSH and HTTPS"
-            exit 1
-          fi
-        fi
-      fi
-    '';
-  };
 
   # Waybar: System status bar
   programs.waybar = {
@@ -117,5 +127,3 @@ in
     }];
   };
 }
-
-# TODO: Convert ~hyprland.conf~ into a Nix configuration
