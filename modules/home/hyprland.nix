@@ -20,9 +20,6 @@
       "$menu" = "wofi --show drun";
       "$mainMod" = "SUPER";
 
-      # Autostart
-      exec-once = ["waybar"];
-
       # Environment Variables
       env = [
         "XCURSOR_SIZE,24"
