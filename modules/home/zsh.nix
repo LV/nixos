@@ -33,12 +33,13 @@
     #   plugins = [ "git" "thefuck" ];
     #   theme = "robbyrussell";
     # };
+
+    # Explicitly write a .zshrc file to your home directory
+    initExtra = ''
+      # Add any additional configurations here
+      export ZSH_DISABLE_COMPFIX=true
+      export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+    '';
   };
 
-  # Explicitly write a .zshrc file to your home directory
-  home.file.".zshrc".text = ''
-    # Add any additional configurations here
-    export ZSH_DISABLE_COMPFIX=true
-    export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-  '';
 }
