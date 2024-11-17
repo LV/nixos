@@ -9,6 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
     nix-secrets = {
       url = "git+ssh://git@github.com/lv/nix-secrets";
       flake = false;
@@ -20,7 +22,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, sops-nix, ... }@inputs:
+  outputs = { hyprland, nixpkgs, home-manager, sops-nix, ... }@inputs:
     let
       system = "x86_64-linux";
     in
@@ -35,6 +37,7 @@
         modules = [
           ./common/configuration.nix
           sops-nix.nixosModules.sops
+          inputs.hyprland.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -44,6 +47,7 @@
               extraSpecialArgs = {
                 inherit inputs;
               };
+              backupFileExtension = "backup";
             };
           }
         ];
