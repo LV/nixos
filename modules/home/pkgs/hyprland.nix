@@ -1,8 +1,5 @@
-{ config, inputs, pkgs, ... }:
+{ pkgs, ... }:
 
-let
-  hyprlandConfigDir = "${config.home.homeDirectory}/.config/hypr";
-in
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -12,14 +9,14 @@ in
     settings = {
       # Monitors
       monitor = [
-        "eDP-1,1920x1280@60,0x0,1"
-        "DP-5,2560x2880@30,0x-2880,1,transform,3"
-        "DP-6,2560x2880@30,0x-2880,1,transform,3"
+        "eDP-1,1920x1280@60,0x0,0.8" # Main display, Thinkpad
+        "DP-5,2560x2880@30,0x-2880,1,transform,3" # DualUp Monitor
+        "DP-6,2560x2880@30,0x-2880,1,transform,3" # DUalUp Monitor
       ];
 
       # Programs
       "$terminal" = "kitty";
-      "$fileManager" = "dolphin";
+      # "$fileManager" = "dolphin";
       "$menu" = "wofi --show drun";
       "$mainMod" = "SUPER";
 
