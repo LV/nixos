@@ -8,11 +8,6 @@ in
     enable = true;
     systemd.enable = true;
     systemd.variables = ["--all"];
-
-  wayland.windowManager.hyprland = {
-    enable = true;
-    systemd.enable = true;
-    systemd.variables = ["--all"];
     
     settings = {
       # Monitors
@@ -54,10 +49,10 @@ in
         rounding = 10;
         active_opacity = 1.0;
         inactive_opacity = 1.0;
-        drop_shadow = true;
-        shadow_range = 4;
-        shadow_render_power = 3;
-        "col.shadow" = "rgba(1a1a1aee)";
+        # drop_shadow = true;
+        # shadow_range = 4;
+        # shadow_render_power = 3;
+        # "col.shadow" = "rgba(1a1a1aee)";
 
         blur = {
           enabled = true;
@@ -190,8 +185,6 @@ in
       # Window rules
       windowrulev2 = "suppressevent maximize, class:.*";
     };
-  };
-
   };
 
   # Include necessary dependencies for Hyprland config
