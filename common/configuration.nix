@@ -62,15 +62,6 @@ in
     hashedPasswordFile = config.sops.secrets.lv_passwd.path;
   };
 
-  environment.systemPackages = with pkgs; [
-    gcc
-    git
-    gnumake
-    tmux
-    vim
-    wget
-  ];
-
   # Keep this outside of Home Manager if you want `root` to have the same Git configuration
   programs.git = {
     enable = true;
