@@ -40,6 +40,12 @@
       # Add any additional configurations here
       export ZSH_DISABLE_COMPFIX=true
       export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+
+      mkcdir ()
+      {
+        mkdir -p -- "$1" &&
+           cd -P -- "$1"
+      }
     '';
   };
 
