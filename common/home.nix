@@ -23,6 +23,7 @@
     ../modules/home/pkgs/lazygit.nix
     ../modules/home/pkgs/manim.nix
     ../modules/home/pkgs/neovim.nix
+    ../modules/home/pkgs/obs.nix
     ../modules/home/pkgs/obsidian.nix
     ../modules/home/pkgs/python.nix
     ../modules/home/pkgs/spotify.nix
