@@ -22,7 +22,7 @@
     };
   };
 
-  outputs = { hyprland, nixpkgs, home-manager, sops-nix, ... }@inputs:
+  outputs = { home-manager, nixpkgs, sops-nix, ... }@inputs:
     let
       system = "x86_64-linux";
     in
