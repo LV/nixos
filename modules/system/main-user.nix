@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 
 let
   cfg = config.main-user;
@@ -33,6 +33,7 @@ in
         "wheel"  # wheel: enable `sudo` for the user
       ];
       hashedPasswordFile = cfg.hashedPasswordFile;
+      shell = pkgs.zsh;
     };
   };
 }
