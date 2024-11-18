@@ -20,6 +20,10 @@
       "$menu" = "wofi --show drun";
       "$mainMod" = "SUPER";
 
+      exec-once = [
+        "swaybg -i ~/nixos/assets/wallpaper.png -m fill" # HACK: Uses a hard-coded ref instead of a relative ref
+      ];
+
       # Environment Variables
       env = [
         "XCURSOR_SIZE,24"
