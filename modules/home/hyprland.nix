@@ -3,8 +3,11 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.enable = true;
-    systemd.variables = ["--all"];
+
+    systemd = {
+      enable = true;
+      variables = ["--all"];
+    };
     
     settings = {
       # Monitors
