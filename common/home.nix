@@ -9,6 +9,9 @@
 
   imports = [
     ../modules/home/hyprland.nix
+    ../modules/home/kitty.nix
+    ../modules/home/neovim.nix
+    ../modules/home/zathura.nix
     ../modules/home/zsh.nix
 
     # Packages
@@ -19,10 +22,8 @@
     ../modules/home/pkgs/flameshot.nix
     ../modules/home/pkgs/github.nix
     ../modules/home/pkgs/go.nix
-    ../modules/home/pkgs/kitty.nix
     ../modules/home/pkgs/lazygit.nix
     ../modules/home/pkgs/manim.nix
-    ../modules/home/pkgs/neovim.nix
     ../modules/home/pkgs/obs.nix
     ../modules/home/pkgs/obsidian.nix
     ../modules/home/pkgs/python.nix
@@ -31,7 +32,6 @@
     ../modules/home/pkgs/typst.nix
     ../modules/home/pkgs/vlc.nix
     ../modules/home/pkgs/xournalpp.nix
-    ../modules/home/pkgs/zathura.nix
   ];
 
   home = {
