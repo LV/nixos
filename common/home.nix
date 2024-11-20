@@ -29,6 +29,7 @@
     ../modules/home/pkgs/spotify.nix
     ../modules/home/pkgs/taskwarrior.nix
     ../modules/home/pkgs/typst.nix
+    ../modules/home/pkgs/vlc.nix
     ../modules/home/pkgs/xournalpp.nix
     ../modules/home/pkgs/zathura.nix
   ];
