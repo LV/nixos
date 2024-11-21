@@ -17,7 +17,6 @@ in
       # system packages
       ../modules/system/pkgs/docker.nix
       ../modules/system/pkgs/firefox.nix
-      ../modules/system/pkgs/syncthing.nix
       ../modules/system/pkgs/unzip.nix
 
       ../hosts/x86/hardware-configuration.nix
