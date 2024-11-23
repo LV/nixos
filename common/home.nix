@@ -27,6 +27,7 @@
     ../modules/home/pkgs/obs.nix
     ../modules/home/pkgs/obsidian.nix
     ../modules/home/pkgs/python.nix
+    ../modules/home/pkgs/rust.nix
     ../modules/home/pkgs/spotify.nix
     ../modules/home/pkgs/taskwarrior.nix
     ../modules/home/pkgs/typst.nix
