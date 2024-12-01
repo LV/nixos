@@ -10,6 +10,7 @@ in
 
   # Include necessary packages
   home.packages = with pkgs; [
+    bash-language-server
     clang-tools
     efm-langserver
     fzf
