@@ -18,6 +18,7 @@
     ../modules/home/pkgs/age.nix
     ../modules/home/pkgs/bear.nix
     ../modules/home/pkgs/delta.nix
+    ../modules/home/pkgs/elixir.nix
     # ../modules/home/pkgs/emacs.nix
     ../modules/home/pkgs/flameshot.nix
     ../modules/home/pkgs/github.nix
