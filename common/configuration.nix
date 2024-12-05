@@ -18,6 +18,7 @@ in
       ../modules/system/pkgs/docker.nix
       ../modules/system/pkgs/firefox.nix
       ../modules/system/pkgs/postgres.nix
+      ../modules/system/pkgs/tmux.nix
       ../modules/system/pkgs/unzip.nix
 
       ../hosts/x86/hardware-configuration.nix
