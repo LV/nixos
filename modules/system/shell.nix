@@ -5,7 +5,6 @@
     systemPackages = with pkgs; [
       git
       gnumake
-      tmux
       vim
       wget
     ];
