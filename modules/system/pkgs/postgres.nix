@@ -3,7 +3,7 @@
 {
   config.services.postgresql = {
     enable = true;
-    package = pkgs.postgresql_17;
+    package = pkgs.postgresql_16;
     ensureDatabases = [ "lvdb" ];
     enableTCPIP = true;
     # port = 5432;
