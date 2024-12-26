@@ -12,8 +12,11 @@ in
   home.packages = with pkgs; [
     bash-language-server
     clang-tools
+    dwt1-shell-color-scripts
     efm-langserver
     fzf
+    gh
+    hub
     lazygit
     lua-language-server
     luajitPackages.luacheck
