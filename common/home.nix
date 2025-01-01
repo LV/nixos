@@ -23,6 +23,7 @@
     # ../modules/home/pkgs/emacs.nix
     ../modules/home/pkgs/flameshot.nix
     ../modules/home/pkgs/gdb.nix
+    ../modules/home/pkgs/ghostty.nix
     ../modules/home/pkgs/github.nix
     ../modules/home/pkgs/go.nix
     ../modules/home/pkgs/lazygit.nix
