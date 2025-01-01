@@ -18,7 +18,7 @@
       ];
 
       # Programs
-      "$terminal" = "kitty";
+      "$terminal" = "ghostty";
       # "$fileManager" = "dolphin";
       "$menu" = "wofi --show drun";
       "$mainMod" = "SUPER";

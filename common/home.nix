@@ -9,7 +9,6 @@
 
   imports = [
     ../modules/home/hyprland.nix
-    ../modules/home/kitty.nix
     ../modules/home/neovim.nix
     ../modules/home/zathura.nix
     ../modules/home/zsh.nix
