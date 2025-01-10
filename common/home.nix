@@ -26,6 +26,7 @@
     ../modules/home/pkgs/github.nix
     ../modules/home/pkgs/go.nix
     ../modules/home/pkgs/lazygit.nix
+    ../modules/home/pkgs/lisp.nix
     ../modules/home/pkgs/manim.nix
     ../modules/home/pkgs/obs.nix
     ../modules/home/pkgs/obsidian.nix
