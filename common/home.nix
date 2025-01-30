@@ -19,7 +19,7 @@
     ../modules/home/pkgs/cpp.nix
     ../modules/home/pkgs/delta.nix
     ../modules/home/pkgs/elixir.nix
-    # ../modules/home/pkgs/emacs.nix
+    ../modules/home/pkgs/emacs.nix
     ../modules/home/pkgs/flameshot.nix
     ../modules/home/pkgs/gdb.nix
     ../modules/home/pkgs/ghostty.nix

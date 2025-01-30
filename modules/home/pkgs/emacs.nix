@@ -1,5 +1,3 @@
-# Currently not being used
-
 { config, inputs, pkgs, ... }:
 
 let
